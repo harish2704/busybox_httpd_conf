@@ -24,8 +24,8 @@ echo "
         </style>
     </head>
     <body>
-        <div id="env"> $( env ) </div>
-        <div id="lsout"> $(busybox ls -l $PWD/..$QUERY_STRING) </div>
+        <div id="env">$( env )</div>
+        <div id="lsout">$(busybox ls -lL $PWD/..$QUERY_STRING)</div>
         <div id="table-f">
         </div>
         <script type="text/html" id="tableTemplate">
@@ -38,7 +38,7 @@ echo "
                 <% _.each(fList, function(details){%>
                 <tr>
                     <td> <%= fTypeMap [ details[0][0] ]%></td>
-                    <td><a href=\"/<%= encodeURIComponent( details[8] )%>\"><%= details[8]%></a></td>
+                    <td><a href=\"<%= encodeURIComponent( details[8] )%>\"><%= details[8]%></a></td>
                     <td><%= details[4] %></td>
                 </tr>
                 <% }); %>
